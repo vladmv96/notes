@@ -1,0 +1,54 @@
+
+.name{
+    position:relative;
+}
+.name .edit {
+    display:none;
+}
+.name:hover .edit{
+    display:inline;
+}
+
+.text{
+    position:relative;
+}
+.text .edit {
+    display:none;
+}
+.text:hover .edit{
+    display:inline;
+}
+
+.card{
+    position:relative;
+}
+.card .delete {
+    position: absolute;
+    display:none;
+}
+.card:hover .delete{
+    display:inline;
+}
+
+.colorPicker {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+.circle {
+    height: 28px; 
+    width: 28px; 
+    cursor: pointer; 
+    position: fixed; 
+    right: 20px;
+    bottom: 20px;
+    outline: none; 
+    border-radius: 50%; 
+    background-position: center center;
+    transition: box-shadow 100ms ease;
+}
+
+body {
+    background-repeat: repeat;
+}

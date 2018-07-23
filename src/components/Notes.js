@@ -12,7 +12,7 @@ import Sortable from 'sortablejs';
 import { CirclePicker } from 'react-color';
 import circle from '../images/circle.jpeg';
 import { connect } from 'react-redux';
-import { saveNotes } from '../actions/notes_actions';
+import { saveNotes, saveColor } from '../actions/notes_actions';
 
 
 class Notes extends Component {
@@ -31,7 +31,8 @@ class Notes extends Component {
   }
 
   componentWillMount = () => {
-    document.body.style.background = this.state.background;
+    console.log(this.props.color)
+    document.body.style.background = this.props.color;
     console.log(this.props.notes)
     this.setState({notes: this.props.notes})
   }
@@ -78,9 +79,11 @@ class Notes extends Component {
   }
 
   deleteNote = (index) => {
+    if (window.confirm('Вы уверены, что хотите удалить эту заметку?')) {
     this.state.notes.splice(index, 1);
     this.props.saveNotes(this.state.notes);
     this.forceUpdate();
+    } 
   }
 
   editName = (name, index) => {
@@ -94,8 +97,8 @@ class Notes extends Component {
   }
 
   handleChangeComplete = (color) => {
-    this.setState({ background: color.hex });
-    document.body.style.background = this.state.background
+    this.props.saveColor(color.hex);
+    document.body.style.background = color.hex
     this.setState({colorPicker: false})
   };
 
@@ -186,7 +189,7 @@ class Notes extends Component {
                 onMouseOut={this.changeHovered.bind(this, false)}
                 onClick={this.setNote}>
                 <Typography variant="headline" component="h3">
-                  Нажмите сюда для создания новой заметки
+                  Нажмите для создания новой заметки
               </Typography>
               </Paper>}
 
@@ -298,11 +301,13 @@ const inlineStyles = {
 }
 
 const mapDispatchToProps = {
-   saveNotes
+   saveNotes,
+   saveColor
  }
 
  const mapStateToProps = (state) => ({
-    notes: state.notes.notes
+    notes: state.notes.notes,
+    color: state.notes.color
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Notes));

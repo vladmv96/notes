@@ -31,9 +31,7 @@ class Notes extends Component {
   }
 
   componentWillMount = () => {
-    console.log(this.props.color)
     document.body.style.background = this.props.color;
-    console.log(this.props.notes)
     this.setState({notes: this.props.notes})
   }
 

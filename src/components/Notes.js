@@ -226,7 +226,7 @@ class Notes extends Component {
         {colorPicker && <CirclePicker
           className="colorPicker"
           width="150px"
-          colors = {["#FF6C6C", "#FFCE6C", "#FFFF6C", "#C0EE65", "#57CC57", "#419999", "#536DAB", "#8A4DAB", "#CD5699"]}
+          colors = {["#FF6C6C", "#FF8700", "#C4A83E", "#95C300", "#57CC57", "#419999", "#536DAB", "#8A4DAB", "#CD5699"]}
           onChangeComplete={this.handleChangeComplete}
         /> }
       </div>

@@ -50,6 +50,5 @@
 }
 
 body {
-    background-image: url('../images/background.png') !important;
-    background-repeat: repeat !important;
+    background-repeat: repeat;
 }
